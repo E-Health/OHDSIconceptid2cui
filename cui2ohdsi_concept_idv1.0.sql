@@ -60,4 +60,7 @@ SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN
 ) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 ) as AAA
 );
-ALTER TABLE vocabulary.OHDSI_to_CUI ADD INDEX CUI (CUI), ADD INDEX concept_id (concept_id), ADD INDEX vocabulary_id (vocabulary_id);
+
+CREATE INDEX X_cui ON vocabulary.OHDSI_to_CUI(cui);
+CREATE INDEX X_concept_id ON vocabulary.OHDSI_to_CUI(concept_id);
+CREATE INDEX X_vocabulary_id ON vocabulary.OHDSI_to_CUI(vocabulary_id);
