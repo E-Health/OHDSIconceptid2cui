@@ -12,52 +12,52 @@
 ## vocabulary tables                                             ###
 ####################################################################
 
-DROP TABLE IF EXISTS OHDSIVocab.OHDSI_to_CUI;
-CREATE TABLE OHDSIVocab.OHDSI_to_CUI AS (
+DROP TABLE IF EXISTS vocabulary.OHDSI_to_CUI;
+CREATE TABLE vocabulary.OHDSI_to_CUI AS (
 SELECT AAA.* FROM (
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='RXNORM' AND B.vocabulary_id='RxNorm'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='RXNORM' AND B.vocabulary_id='RxNorm'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='CPT' AND B.vocabulary_id='CPT4'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='CPT' AND B.vocabulary_id='CPT4'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='HCPCS' AND B.vocabulary_id='HCPCS'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='HCPCS' AND B.vocabulary_id='HCPCS'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='ICD10CM' AND B.vocabulary_id='ICD10CM'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='ICD10CM' AND B.vocabulary_id='ICD10CM'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='ICD10PCS' AND B.vocabulary_id='ICD10PCS'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='ICD10PCS' AND B.vocabulary_id='ICD10PCS'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='ICD9CM' AND B.vocabulary_id='ICD9CM'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='ICD9CM' AND B.vocabulary_id='ICD9CM'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='MDR' AND B.vocabulary_id='MedDRA'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='MDR' AND B.vocabulary_id='MedDRA'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='HCPCS' AND B.vocabulary_id='HCPCS'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='HCPCS' AND B.vocabulary_id='HCPCS'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='NDFRT' AND B.vocabulary_id='NDFRT'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='NDFRT' AND B.vocabulary_id='NDFRT'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='SNOMEDCT_US' AND B.vocabulary_id='SNOMED'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='SNOMEDCT_US' AND B.vocabulary_id='SNOMED'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 UNION
 SELECT AA.* FROM (
-SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls2017ab_AC.MRCONSO as A LEFT JOIN OHDSIVocab.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='LNC' AND B.vocabulary_id='LOINC'
-) AA GROUP BY AA.CUI
+SELECT A.CUI, B.concept_id, B.vocabulary_id FROM umls_cui.MRCONSO as A LEFT JOIN vocabulary.concept as B ON A.CODE=B.concept_code WHERE A.LAT='ENG' AND A.SAB='LNC' AND B.vocabulary_id='LOINC'
+) AA GROUP BY AA.CUI, AA.concept_id, AA.vocabulary_id
 ) as AAA
 );
-ALTER TABLE OHDSIVocab.OHDSI_to_CUI ADD INDEX CUI (CUI), ADD INDEX concept_id (concept_id), ADD INDEX vocabulary_id (vocabulary_id);
+ALTER TABLE vocabulary.OHDSI_to_CUI ADD INDEX CUI (CUI), ADD INDEX concept_id (concept_id), ADD INDEX vocabulary_id (vocabulary_id);
